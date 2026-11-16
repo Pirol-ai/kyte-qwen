@@ -1,0 +1,25 @@
+# What can be checked without Qwen Code and without kyte on the machine.
+#
+# The real proof is check.sh — it installs the package and talks to the server — but it needs
+# both programs, so it is run by hand. What runs here is everything a manifest can get wrong
+# on its own.
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  manifests:
+    name: manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/*.test.mjs

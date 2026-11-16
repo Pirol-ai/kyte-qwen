@@ -1,0 +1,14 @@
+{
+  "name": "kyte",
+  "version": "0.1.0",
+  "description": "Your company's kyte workspace in Qwen Code: customers, contacts, deals, projects, hours, invoices, goals, people and documents — read and changed as you, under your permissions. Served by the kyte program on your own computer.",
+  "mcpServers": {
+    "kyte": {
+      "command": "/bin/sh",
+      "args": [
+        "-c",
+        "exec \"${KYTE_PROGRAM:-kyte}\" mcp --db \"${KYTE_QWEN_DB:-$HOME/.kyte/qwen}\""
+      ]
+    }
+  }
+}
